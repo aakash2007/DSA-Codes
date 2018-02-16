@@ -43,19 +43,22 @@ int partition(Employee arr[], int l, int r){
 
 void QuickSort(Employee arr[], int S, int n){
 	int l,r;
-	if(S < 1){
-		l = 0;
-		r = n-1;
-	}
-	else if(S > n-1){
-		return;
-	}
-	else{
-		l = S;
-		r = n-1;
-	}
+	// if(S < 1){
+	// 	l = 0;
+	// 	r = n-1;
+	// }
+	// else if(S > n-1){
+	// 	return;
+	// }
+	// else{
+	// 	l = S;
+	// 	r = n-1;
+	// }
+	l=0;
+	r=n-1;
 
-	int aux[r - l + 1];
+	int kk = r - l + 1;
+	int *aux = malloc(kk*sizeof(int));
 	int top = -1;
 
 	aux[++top] = l;
@@ -65,10 +68,49 @@ void QuickSort(Employee arr[], int S, int n){
 		r = aux[top--];
 		l = aux[top--];
 
-		if(r - l < 10){
-			InsertionSort(arr,l,r);
+		int p = partition(arr, l, r);
+
+		if(p-1 > l){
+			aux[++top] = l;
+			aux[++top] = p-1;
 		}
-		else{
+		if(p+1 < r){
+			aux[++top] = p+1;
+			aux[++top] = r;
+		}
+	}
+}
+
+void optQuickSort(Employee arr[], int S, int n){
+	int l,r;
+	// if(S < 1){
+	// 	l = 0;
+	// 	r = n-1;
+	// }
+	// else if(S > n-1){
+	// 	return;
+	// }
+	// else{
+	// 	l = S;
+	// 	r = n-1;
+	// }
+
+	l = 0;
+	r = n-1;	
+
+	int kk = r - l + 1;
+	int *aux = malloc(kk*sizeof(int));
+	int top = -1;
+
+	aux[++top] = l;
+	aux[++top] = r;
+
+	while(top >= 0){
+		r = aux[top--];
+		l = aux[top--];
+
+		// if(r - l > S)
+		{
 			int p = partition(arr, l, r);
 
 			if(p-1 > l){
@@ -80,6 +122,10 @@ void QuickSort(Employee arr[], int S, int n){
 				aux[++top] = p+1;
 				aux[++top] = r;
 			}
+		}
+		// else
+		{
+			// InsertionSort(arr,l,r);
 		}
 	}
 }
