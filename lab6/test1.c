@@ -43,17 +43,6 @@ int partition(Employee arr[], int l, int r){
 
 void QuickSort(Employee arr[], int S, int n){
 	int l,r;
-	// if(S < 1){
-	// 	l = 0;
-	// 	r = n-1;
-	// }
-	// else if(S > n-1){
-	// 	return;
-	// }
-	// else{
-	// 	l = S;
-	// 	r = n-1;
-	// }
 	l=0;
 	r=n-1;
 
@@ -83,18 +72,7 @@ void QuickSort(Employee arr[], int S, int n){
 
 void optQuickSort(Employee arr[], int S, int n){
 	int l,r;
-	// if(S < 1){
-	// 	l = 0;
-	// 	r = n-1;
-	// }
-	// else if(S > n-1){
-	// 	return;
-	// }
-	// else{
-	// 	l = S;
-	// 	r = n-1;
-	// }
-
+	
 	l = 0;
 	r = n-1;	
 
