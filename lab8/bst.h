@@ -5,9 +5,12 @@ typedef struct node* Node;
 struct node{
 	int val;
 	Node ltree, rtree;
-	int hb : 2;
+	int hb;
 };
 
 Node addnode(Node root, int v);
 Node deletenode(Node root, int v);
 Node find(Node root, int v);
+Node rotate(Node x, Node y, Node z);
+int depth(Node ptr);
+Node avlinsert(Node root, int v);

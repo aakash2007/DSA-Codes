@@ -13,11 +13,16 @@ int main(){
 	root = addnode(root , 23);
 	root = addnode(root , 11);
 	root = addnode(root , 88);
-	root = addnode(root , 88);
+	root = addnode(root , 99);
+	root = addnode(root , 101);
 	
-	root = deletenode(root, 88);
+	//root = deletenode(root, 88);
 	
-	
-	printf("ll %d\n",find(root , 11)->val);
+	Node ptr = find(root, 2);
+	printf("ll %d\n",depth(root));
+	printf("ll %d\n",depth(root->ltree));
+	printf("ll %d\n",depth(root->rtree));
+	printf("ll %d\n",calchb(root));
+	root->hb = calchb(root);
 	printbst(root);
 }
