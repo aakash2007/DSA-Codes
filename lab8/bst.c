@@ -105,21 +105,17 @@ void printbst(Node root){
 
 
 Node rotate(Node X , Node Y , Node Z)
-{	
-	
+{
 	Node a , b , c , T0 , T1 , T2 , T3;
-	if(Z->ltree == Y)
-	{
-		if(Y->ltree == X)
-		{
+	if(Z->ltree == Y){
+		if(Y->ltree == X){
 			b = Y;
 			a = X;
 			T2 = Y->rtree;
 			T1 = X->rtree;
 			T0 = X->ltree;	
 		}
-		else
-		{
+		else{
 			a = Y;
 			b = X;
 			T0 = Y->ltree;
@@ -128,33 +124,25 @@ Node rotate(Node X , Node Y , Node Z)
 		}
 		c = Z;
 		T3 = Z->rtree;
-	
 	}
-	else if(Z->rtree == Y)
-	{
-		if(Y->ltree == X)
-		{
+	else if(Z->rtree == Y){
+		if(Y->ltree == X){
 			b = X;
 			c = Y;
 			T1 = X->ltree;
 			T2 = X->rtree;
 			T3 = Y->rtree;
 		}
-		else
-		{
+		else{
 			b = Y;
 			c = X;
 			T1 = Y->ltree;
 			T2 = X->ltree;
 			T3 = X->rtree;
-		
 		}
-		
 		a = Z;
 		T0 = Z->ltree;
-	
 	}
-	
 	Z = b;
 	b->ltree = a;
 	a->ltree = T0;
@@ -162,17 +150,16 @@ Node rotate(Node X , Node Y , Node Z)
 	b->rtree = c;
 	c->rtree = T3;
 	c->ltree = T2;
-	
 	a->hb = calchb(a);
 	b->hb = calchb(b);
 	c->hb = calchb(c);	
 	return Z;
-
 }
 
 Node createnode(int v){
 	Node ptr = (Node)malloc(sizeof(struct node));
 	ptr->val = v;
+	ptr->lcnt = 0;
 	ptr->ltree = ptr->rtree = NULL;
 	return ptr;
 }
